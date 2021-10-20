@@ -1,10 +1,7 @@
-module Types
-  class PostType < Types::BaseObject
-    field :id, ID, null: false
-    field :title, String, null: true
-    field :body, String, null: true
-    field :user_id, Integer, null: true
-    field :created_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-  end
-end
+Types::PostType = GraphQL::ObjectType.define do
+  name 'PostType'
+  description 'Represents a blog post in the system'
+  field :id, !types.ID, 'The ID of the blog post'
+  field :title, types.String, 'A user-friendly title for the blog post'
+  field :body, types.String, 'The main body of content for the blog post'
+ end
